@@ -25,11 +25,11 @@ export default class ParameterInput extends React.Component<{type: string, initi
 
         if(this.state.isArray){
             for(let i=0; i<this.state.value.length; i++) {
-                parameters.push(<ParameterInput key={this.state.valueUUIDs[i]} type={this.props.type.substring(0, this.props.type.length-2)} initialValue={this.state.value[i]} changeParameter={(value: any) => this.handleParameterChange(value, i)}/>)
+                parameters.push(<ParameterInput type={this.props.type.substring(0, this.props.type.length-2)} initialValue={this.state.value[i]} changeParameter={(value: any) => this.handleParameterChange(value, i)}/>)
             }
         }else if(this.state.isTuple){
             splitParameters(this.props.type.substring(1, this.props.type.length-1)).forEach((t, i) => {
-                parameters.push(<ParameterInput key={this.state.valueUUIDs[i]} type={t} initialValue={this.state.value[i]} changeParameter={(value: any) => this.handleParameterChange(value, i)}/>)
+                parameters.push(<ParameterInput type={t} initialValue={this.state.value[i]} changeParameter={(value: any) => this.handleParameterChange(value, i)}/>)
             })
         }
 
@@ -37,7 +37,7 @@ export default class ParameterInput extends React.Component<{type: string, initi
             <div className="flex flex-col">
                 {parameters.map((p, i) => {
                     return (this.state.isExpanded || i == 0) && (
-                        <div className={"pl-3 flex group"}>
+                        <div key={this.state.valueUUIDs[i]} className={"pl-3 flex group"}>
                             {i == 0 ?
                                 <Image className={`w-2 h-3 mt-3 cursor-pointer ${this.state.isExpanded && "rotate-90"}`} src={ARROW} alt="" onClick={() => this.setState({isExpanded: !this.state.isExpanded})}/>
                                 :
