@@ -109,7 +109,6 @@ export function getEmptyChains(): Chain[] {
 //Get method selectors per chain in one single request to the database
 export async function getChains(contract: string): Promise<Chain[]> {
     const chains = getEmptyChains()
-    const t = Date.now()
 
     //Get signatures per chain
     const chainCodes = await Promise.all(chains.map<Promise<string>>(c => {
@@ -127,8 +126,6 @@ export async function getChains(contract: string): Promise<Chain[]> {
         const signatures = c.match(/(?<=8063)[0-9a-f]{8}|(?<=005b63)[0-9a-f]{8}(?=600051141561)/g) ?? [] //Search for signatures in jump table
         return signatures.filter((sig, i) => signatures.indexOf(sig) == i)
     })
-
-    console.log(Date.now()-t)
 
     //Create an array of unique signatures
     var uniqueSignatures = chainSignatures.flat()
