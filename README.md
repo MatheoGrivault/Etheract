@@ -1,7 +1,9 @@
-# Etheract
+# [Etheract](https://etheract.vercel.app/)
 Etheract allows to easily interact with any Solidity or Vyper contract with a simple UI. No source code or ABI is needed.
 
 Available for Ethereum, BSC, Polygon, Avalanche, Fantom, Goerli, Sepolia and custom chains.
+
+![](docs/screenshot.png)
 
 ## How it works
 Every Ethereum function is represented by its signature which corresponds to the first 4 bytes of the keccak256 hash of `functionName(param1,param2,...)` (e.g. the signature of `function approve(address spender, uint256 amount)` is `095ea7b3`).
