@@ -6,7 +6,7 @@ import ChainTab from "./ChainTab"
 export default class ChainList extends React.Component<{className: string, chains: Chain[], selectedChain: number, changeChain: (i: number) => void, showCustomChainConfig: () => void}> {
     render() {
         return (
-            <div className={"flex justify-center items-center gap-2 " + this.props.className}>
+            <div className={"flex flex-wrap justify-center items-center gap-2 " + this.props.className}>
                 {this.props.chains.map((c, i) =>
                     <ChainTab key={c.name} chain={c} selected={this.props.selectedChain == i} changeChain={() => this.props.changeChain(i)}/>
                 )}

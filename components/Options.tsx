@@ -8,7 +8,7 @@ export default class Options extends React.Component<{className: string, isCall:
                     <input className="mr-1" type="checkbox" onChange={(e) => this.props.setCall(e.target.checked)} checked={this.props.isCall}/>
                     Call
                 </label>
-                <input className="ml-1 bg-slate-900 h-full" placeholder="Value" onChange={this.handleValueInput} value={this.props.value}/>
+                <input className="h-8 ml-1 bg-slate-900" placeholder="Value" onChange={this.handleValueInput} value={this.props.value}/>
             </div>
         )
     }

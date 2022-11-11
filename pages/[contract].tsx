@@ -61,7 +61,7 @@ class Contract extends React.Component<{router: NextRouter}, {chains: Chain[], s
 
                 <Alert className="w-1/2 fixed right-2 bottom-11 bg-slate-900 p-2 border-2 rounded-md shadow-2x" alert={this.state.alert}/>
 
-                <Options className="fixed bottom-0 w-full h-8 border-t" isCall={this.state.isCall} setCall={(isCall: boolean) => this.setState({isCall: isCall})} value={this.state.value} setValue={(value: string) => this.setState({value: value})}/>
+                <Options className="fixed bottom-0 w-full border-t" isCall={this.state.isCall} setCall={(isCall: boolean) => this.setState({isCall: isCall})} value={this.state.value} setValue={(value: string) => this.setState({value: value})}/>
 
                 {this.state.customChainConfig && <CustomChainConfig hide={() => this.setState({customChainConfig: false})}/>}
             </div>
